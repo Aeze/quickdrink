@@ -39,9 +39,9 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-
-gem 'zurb-foundation', '~> 4.0.0'
-
+group :assets do
+  gem 'zurb-foundation', '~> 4.0.0'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
