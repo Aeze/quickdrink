@@ -1,0 +1,7 @@
+<h2> <%= @drink.name %></h2>
+
+<%= simple_form_for @drink do |f| %>
+  <%= f.input :name %>
+  <%= f.association :ingredients,   as: :check_boxes %>
+  <%= f.submit %>
+  <% end %>

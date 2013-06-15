@@ -1,2 +1,25 @@
-<h1>Drinks#index</h1>
-<p>Find me in app/views/drinks/index.html.erb</p>
+<h2>QuickDrink Admin Interface</h2>
+
+<div>
+  <p>Add New Drink</p>
+  <%= simple_form_for Drink.new do |f| %>
+  <%= f.input :name %>
+  <%= f.association :ingredients,   as: :check_boxes %>
+  <%= f.submit %>
+  <% end %>
+  <p>Add New Ingredient</p>
+  <%= simple_form_for Ingredient.new do |f| %>
+  <%= f.input :name %>
+  <%= f.submit %>
+  <% end %>
+</div>
+
+
+<div>
+  <h4>Drinks</h4>
+  <ul>
+    <% @drinks.each do |d| %>
+      <li><%= link_to (d.name), drink_path(d) %></li>
+    <% end %>
+  </ul>
+</div>
