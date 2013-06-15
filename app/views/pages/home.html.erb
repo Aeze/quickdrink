@@ -1,0 +1,6 @@
+<% @drinks.each do |d| %>
+  <p>Drink: <%= d.name %></p>
+  <ul><% d.ingredients.each do |i| %>
+    <li><%= i.name %></li>
+  <% end %></ul>
+<% end %>
