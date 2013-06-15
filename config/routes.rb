@@ -3,6 +3,8 @@ Bottomsup::Application.routes.draw do
   get 'drinks/random'
   resources :drinks
   resources :ingredients
+
+  delete 'drinks/:id' => 'drinks#destroy', as: :delete_drink
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

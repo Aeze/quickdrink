@@ -45,7 +45,7 @@
 
 <% @ingredients.each do |i| %>
 
-<li><%= link_to (i.name), ingredient_path(i) %> - <%= link_to "(delete)", i, :method => :delete %></li>
+<li><%= link_to (i.name), ingredient_path(i) %> - <%= link_to "(delete)", i, :method => :delete, :confirm => "Are you sure?" %></li>
 
 <% end %>
 </div>
