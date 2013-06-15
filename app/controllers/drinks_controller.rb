@@ -1,6 +1,7 @@
 class DrinksController < ApplicationController
   def index
     @drinks = Drink.all
+    @ingredients = Ingredient.all
   end
 
   def show
@@ -17,6 +18,13 @@ class DrinksController < ApplicationController
     @drink = Drink.find(params[:id])
     @drink.update_attributes(drink_params)
     redirect_to drinks_path
+  end
+
+  def destroy
+    @drink = Drink.find(params[:id])
+    @drink.destroy
+        redirect_to drinks_path
+
   end
 
   def random

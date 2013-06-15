@@ -1,13 +1,23 @@
+<div class="row">
 <h2>QuickDrink Admin Interface</h2>
 
-<div>
-  <p>Add New Drink</p>
+
+
+<div class="large-9 columns">
+  <div class="panel">
+  <h4>Add drink</h4>
   <%= simple_form_for Drink.new do |f| %>
   <%= f.input :name %>
   <%= f.association :ingredients,   as: :check_boxes %>
   <%= f.submit %>
   <% end %>
-  <p>Add New Ingredient</p>
+</div>
+</div>
+
+  <aside class="large-3 columns">
+
+  <div class="panel">
+  <p>Add Ingredient</p>
   <%= simple_form_for Ingredient.new do |f| %>
   <%= f.input :name %>
   <%= f.submit %>
@@ -15,11 +25,29 @@
 </div>
 
 
-<div>
+<div class="panel">
   <h4>Drinks</h4>
   <ul>
     <% @drinks.each do |d| %>
-      <li><%= link_to (d.name), drink_path(d) %></li>
+      <li><%= link_to (d.name), drink_path(d) %>- <%= link_to "(delete)", d, :method => :delete, :confirm => "Are you sure?" %></li></li>
     <% end %>
   </ul>
+</div>
+</aside>
+
+</div>
+
+<div class="row">
+
+<div class="large-9">
+<div class="panel">
+<h4>Ingredients</h4>
+
+<% @ingredients.each do |i| %>
+
+<li><%= link_to (i.name), ingredient_path(i) %> - <%= link_to "(delete)", i, :method => :delete, :confirm => "Are you sure?" %></li>
+
+<% end %>
+</div>
+</div>
 </div>

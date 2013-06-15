@@ -11,6 +11,13 @@ class IngredientsController < ApplicationController
     redirect_to drinks_path
   end
 
+   def destroy
+    @ingredient = Ingredient.find(params[:id])
+    @ingredient.destroy
+        redirect_to drinks_path
+
+  end
+
   def ingredient_params
     params.require(:ingredient).permit(:name)
   end
