@@ -29,7 +29,7 @@
   <h4>Drinks</h4>
   <ul>
     <% @drinks.each do |d| %>
-      <li><%= link_to (d.name), drink_path(d) %>- <%= link_to "(delete)", drink_path(d), :method => :delete, :confirm => "Are you sure?" %></li></li>
+      <li><%= link_to (d.name), drink_path(d) %>- <%= link_to "(delete)", d, :method => :delete, :confirm => "Are you sure?" %></li></li>
     <% end %>
   </ul>
 </div>
@@ -45,7 +45,7 @@
 
 <% @ingredients.each do |i| %>
 
-<li><%= link_to (i.name), ingredient_path(i) %> - <%= link_to "(delete)", ingredient_path(i), :method => :delete, :confirm => "Are you sure?" %></li>
+<li><%= link_to (i.name), ingredient_path(i) %> - <%= link_to "(delete)", i, :method => :delete %></li>
 
 <% end %>
 </div>
