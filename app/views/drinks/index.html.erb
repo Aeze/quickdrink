@@ -4,8 +4,8 @@
 <div class="large-9 columns">
   <h4>Add drink</h4>
   <%= simple_form_for Drink.new do |f| %>
-  <%= f.input :name %>
-  <%= f.association :ingredients, as: :check_boxes, label: false %><br />
+  <%= f.input :name, label: false %>
+  <%= f.association :ingredients, as: :check_boxes, label: false %>
   <%= f.submit %>
   <% end %>
 </div>
@@ -13,7 +13,7 @@
   <div class="large-3 columns">
   <h4>Add Ingredient</h4>
   <%= simple_form_for Ingredient.new do |f| %>
-  <%= f.input :name %>
+  <%= f.input :name, label: false %>
   <%= f.submit %>
   <% end %>
 </div>
@@ -22,27 +22,28 @@
 
 <div class="row">
 
-<div class="large-5 columns">
-<div class="panel">
+<div class="large-6 columns">
   <h4>Drinks</h4>
-  <ul>
+    <table>
+
     <% @drinks.each do |d| %>
-      <li id="<%=dom_id(d)%>"><%= link_to (d.name), drink_path(d) %>- <%= link_to "(delete)", d, :method => :delete, :confirm => "Are you sure?" %></li></li>
+    <tr>
+      <td id="<%=dom_id(d)%>"><%= link_to (d.name), drink_path(d) %>- <%= link_to "(delete)", d, :method => :delete, :confirm => "Are you sure?" %></td>
+    </tr>
     <% end %>
-  </ul>
-</div>
+  </table>
 </div>
 
 <div class="large-6 columns">
-<div class="panel">
+
 <h4>Ingredients</h4>
-
+<table>
 <% @ingredients.each do |i| %>
-
-<li id="<%=dom_id(i)%>"><%= link_to (i.name), ingredient_path(i) %> - <%= link_to "(delete)", i, :method => :delete, :confirm => "Are you sure?" %></li>
-
+<tr>
+<td id="<%=dom_id(i)%>"><%= link_to (i.name), ingredient_path(i) %> - <%= link_to "(delete)", i, :method => :delete, :confirm => "Are you sure?" %></td>
+</tr>
 <% end %>
-</div>
+</table>
 </div>
 
 </div>
