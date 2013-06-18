@@ -22,6 +22,20 @@
   </head>
 
   <body>
+    <nav class="top-bar">
+  <ul class="title-area">
+    <li class="name">
+      <h1><%= link_to "QuickDrink", drinks_path %></a></h1>
+    </li>
+  </ul>
+  <section class="top-bar-section">
+    <ul class="right">
+      <% if user_signed_in? %>
+      <li><%= link_to (current_user.email), '#' %></li>
+      <% end %>
+    </ul>
+  </section>
+</nav>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
