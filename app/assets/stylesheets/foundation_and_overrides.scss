@@ -1011,7 +1011,18 @@
 
 @import 'foundation';
 
+
+
+div.input.check_boxes.optional {
+
+-webkit-column-count: 3;
+   -moz-column-count: 3;
+        column-count: 3;
+}
+
 #new_drink div.input label {
-  display: inline;
-  margin-right: 10px;
+position: relative;
+top: -15px;
+left: 25px;
+margin-bottom: -5px;
 }

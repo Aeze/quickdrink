@@ -1,17 +1,17 @@
 <div class="row">
 <h2>QuickDrink Admin Interface</h2>
 
-<div class="large-8 columns">
+<div class="large-9 columns">
   <h4>Add drink</h4>
   <%= simple_form_for Drink.new do |f| %>
   <%= f.input :name %>
-  <%= f.association :ingredients,   as: :check_boxes %>
+  <%= f.association :ingredients, as: :check_boxes, label: false %><br />
   <%= f.submit %>
   <% end %>
 </div>
 
   <div class="large-3 columns">
-  <p>Add Ingredient</p>
+  <h4>Add Ingredient</h4>
   <%= simple_form_for Ingredient.new do |f| %>
   <%= f.input :name %>
   <%= f.submit %>
