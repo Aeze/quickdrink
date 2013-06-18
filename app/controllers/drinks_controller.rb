@@ -1,4 +1,7 @@
 class DrinksController < ApplicationController
+  before_filter :authenticate_user!
+
+
   def index
     @drinks = Drink.all
     @ingredients = Ingredient.all

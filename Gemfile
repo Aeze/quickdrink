@@ -39,20 +39,19 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-
-  gem 'zurb-foundation', '~> 4.0.0'
-
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
-
+gem 'zurb-foundation', '~> 4.0.0'
 gem 'simple_form'
+gem 'devise', '~> 3.0.0rc'
+
+group :development do
+  gem 'factory_girl_rails'
+  gem 'rspec-rails'
+
+end
+
+group :test do
+  gem 'faker'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'launchy'
+end
