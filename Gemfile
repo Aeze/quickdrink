@@ -42,6 +42,8 @@ end
 gem 'zurb-foundation', '~> 4.0.0'
 gem 'simple_form'
 gem 'devise', '~> 3.0.0rc'
+  gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+
 
 group :development do
   gem 'factory_girl_rails'

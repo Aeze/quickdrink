@@ -1,22 +1,22 @@
 <div class="row">
-<h2>QuickDrink Admin Interface</h2>
+  <h2>QuickDrink Admin Interface</h2>
 
-<div class="large-9 columns">
-  <h4>Add drink</h4>
-  <%= simple_form_for Drink.new do |f| %>
-  <%= f.input :name, label: false %>
-  <%= f.association :ingredients, as: :check_boxes, label: false %>
-  <%= f.submit %>
-  <% end %>
-</div>
+  <div class="large-9 columns">
+    <h4>Add drink</h4>
+    <%= simple_form_for Drink.new do |f| %>
+    <%= f.input :name, label: false %>
+    <%= f.association :ingredients, as: :check_boxes, label: false %>
+    <%= f.submit %>
+    <% end %>
+  </div>
 
   <div class="large-3 columns">
-  <h4>Add Ingredient</h4>
-  <%= simple_form_for Ingredient.new do |f| %>
-  <%= f.input :name, label: false %>
-  <%= f.submit %>
-  <% end %>
-</div>
+    <h4>Add Ingredient</h4>
+    <%= simple_form_for Ingredient.new do |f| %>
+    <%= f.input :name, label: false %>
+    <%= f.submit %>
+    <% end %>
+  </div>
 
 </div>
 <div class="row">
@@ -26,29 +26,59 @@
 </div>
 
 <div class="row">
-
-<div class="large-6 columns">
-  <h4>Drinks</h4>
-    <table>
-
-    <% @drinks.each do |d| %>
-    <tr>
-      <td id="<%=dom_id(d)%>"><%= link_to (d.name), drink_path(d) %>- <%= link_to "(delete)", d, :method => :delete, :confirm => "Are you sure?" %></td>
-    </tr>
-    <% end %>
-  </table>
-</div>
-
-<div class="large-6 columns">
-
-<h4>Ingredients</h4>
-<table>
-<% @ingredients.each do |i| %>
-<tr>
-<td id="<%=dom_id(i)%>"><%= link_to (i.name), ingredient_path(i) %> - <%= link_to "(delete)", i, :method => :delete, :confirm => "Are you sure?" %></td>
-</tr>
-<% end %>
-</table>
-</div>
+  <div class="large-12 columns">
+    <div class="section-container auto" data-section>
+      <section>
+        <p class="title" data-section-title><a href="#panel1">Drinks</a></p>
+        <div class="content" data-section-content>
+          <table id="drinks">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Ingredients</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @drinks.each do |d| %>
+              <tr>
+                <td id="<%=dom_id(d)%>"><%= link_to (d.name), drink_path(d) %>- <%= link_to "(delete)", d, :method => :delete, :confirm => "Are you sure?" %></td>
+                <td>
+                  <% d.ingredients.each do |i| %>
+                  <%= i.name %>
+                  <% end %>
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section>
+        <p class="title" data-section-title><a href="#panel2">Ingredients</a></p>
+        <div class="content" data-section-content>
+                  <table id="ingredients">
+      <thead>
+              <tr>
+                <th>Name</th>
+                <th>Ingredients</th>
+              </tr>
+            </thead>
+            <tbody>
+      <% @ingredients.each do |i| %>
+      <tr>
+        <td id="<%=dom_id(i)%>"><%= link_to (i.name), ingredient_path(i) %> - <%= link_to "(delete)", i, :method => :delete, :confirm => "Are you sure?" %></td>
+        <td>
+                  <% i.drinks.each do |d| %>
+                  <%= d.name %>
+                  <% end %>
+                </td>
+      </tr>
+      <% end %>
+    </tbody>
+    </table>
+        </div>
+      </section>
+    </div>
+  </div>
 
 </div>
