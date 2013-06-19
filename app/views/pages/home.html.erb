@@ -1,6 +1,7 @@
 <div class="row">
   <div class="large-12 columns">
   <center><h2><%= @drink.name %></h2></center>
+  <center><%= image_tag 'Gibson-cocktail.png', class: "drinkimage" %></center><br />
   <center><p>| <% @drink.ingredients.each do |i| %>
     <%= i.name %> |
   <% end %></p></center>
@@ -8,8 +9,7 @@
 </div>
 <div class="row">
   <div class="large-12 columns">
-    <center><%= image_tag 'Gibson-cocktail.png', class: "drinkimage" %></center><br />
-    <footer><%= link_to 'Drink', root_url, class: "large button expand" %></footer>
 
+    <footer><%= link_to 'Drink', root_url, class: "large button expand" %></footer>
   </div>
 </div>
