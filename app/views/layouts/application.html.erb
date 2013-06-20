@@ -3,7 +3,7 @@
 <!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
 <!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en" ng-app="drinkApp"> <!--<![endif]-->
   <head>
   	<meta charset="utf-8" />
 
@@ -15,10 +15,14 @@
 
   	<title><%= content_for?(:title) ? yield(:title) : "QuickDrink" %></title>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular-resource.min.js"></script>
+
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
+    
   </head>
 
   <body>

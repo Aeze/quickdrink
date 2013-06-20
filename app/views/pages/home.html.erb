@@ -1,15 +1,15 @@
+<div ng-controller="DrinkCtrl">
 <div class="row">
   <div class="large-12 columns">
-  <center><h2><%= @drink.name %></h2></center>
+  <center><h2>{{drinks.name}}</h2></center>
   <center><%= image_tag 'Gibson-cocktail.png', class: "drinkimage" %></center><br />
-  <center><p>| <% @drink.ingredients.each do |i| %>
-    <%= i.name %> |
-  <% end %></p></center>
+  <center><span ng-repeat="drink in drinks.ingredients">|{{drink.name}}| </span></center>
   </div>
 </div>
+<br />
 <div class="row">
   <div class="large-12 columns">
-
-    <footer><%= link_to 'Drink', root_url, class: "large button expand" %></footer>
+    <center><button ng-click="newDrink()">Drink!</button> </center>
   </div>
+</div>
 </div>
